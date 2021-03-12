@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+
+  <meta name="description" content="{{ site.description }}">
+  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:image" content="">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ site.title }}">
+  <meta name="twitter:description" content="{{ site.description }}">
+  <meta name="twitter:image" content="">
+
+  {%- set css -%}
+    {% include "css/site.css" %}
+    {% include "css/prism-atom-dark.css" %}
+  {%- endset %}
+  <style>
+    {{ css | cssmin | safe }}
+  </style>
+
+  <link rel="alternate" href="/feed.xml" title="{{ site.title }}" type="application/atom+xml">
+</head>
+<body>
+  <header>
+    <a href="/">Zach Johnson</a>
+
+    <a href="/About">About</a>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+</body>
+</html>
