@@ -14,6 +14,10 @@ module.exports = function (eleventyConfig) {
     return moment(date).utc().format("LL");
   });
 
+  eleventyConfig.addFilter("truncate", (string) => {
+    return string.split(" ").slice(0, 3).join(" ");
+  });
+
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
