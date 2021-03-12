@@ -16,6 +16,6 @@ pagination:
 
     {% excerpt post %}
 
-    <a href="{{ post.url | url }}" aria-label="Read more on {{ post.data.title }}">Read more on {{ post.data.title | truncate}}</a>
+    <a href="{{ post.url | url }}" aria-label="Read more on {{ post.data.title }}">Read more - {{ post.data.title | truncate}}</a>
   </article>
 {% endfor %}
