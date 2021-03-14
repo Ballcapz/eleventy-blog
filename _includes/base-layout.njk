@@ -16,6 +16,10 @@
   <meta name="twitter:title" content="{{ site.title }}">
   <meta name="twitter:description" content="{{ site.description }}">
   <meta name="twitter:image" content="">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   {%- set css -%}
     {% include "css/site.css" %}
@@ -37,5 +41,9 @@
   <main>
     {{ content | safe }}
   </main>
+
+  <script src="{{ '/script/index.js' | url }}" data-no-instant></script>
+  <script src="{{ '/script/instantclick.min.js' | url }}" data-no-instant></script>
+  <script data-no-instant>InstantClick.init(50);</script>
 </body>
 </html>

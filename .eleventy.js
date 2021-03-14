@@ -28,6 +28,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy('script');
+  eleventyConfig.addPassthroughCopy('favicon.png');
 };
 
 function extractExcerpt(article) {
