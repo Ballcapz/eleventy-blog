@@ -103,7 +103,8 @@ a:hover {
 }
 
 time {
-  color: var(--pewter);
+  color: var(--blue-hl);
+  text-shadow: 0 0.2px var(--blue);
 }
 
 article img {
@@ -145,7 +146,7 @@ ul {
   border-radius: 4px;
   min-width: 50px;
   color: var(--white);
-  background-color: var(--pewter);
+  background-color: var(--blue-hl);
   font-size: 14px;
   cursor: pointer;
 }
@@ -162,9 +163,7 @@ ul {
 
 .subscribe {
   width: 465px;
-  height: 140px;
-  border-radius: 8px;
-  background-color: var(--pewter);
+  height: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -172,24 +171,6 @@ ul {
   margin: 24px auto;
   transition: width 250ms ease-in-out;
   position: relative;
-}
-
-.subscribe .hide {
-  color: var(--white);
-  position: absolute;
-  top: 4px;
-  right: 10px;
-  font: 24px Helvetica, Arial, sans-serif;
-  width: 24px;
-  height: 24px;
-  line-height: 20px;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.subscribe .hide:hover {
-  background-color: rgba(255, 255, 255, 0.2);
 }
 
 #mc_embed_signup {
@@ -214,36 +195,36 @@ ul {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-}
-
-#mc_embed_signup_scroll label {
-  font: 24px Helvetica, Arial, sans-serif;
-  font-weight: bold;
 }
 
 #mc_embed_signup_scroll input[type="email"] {
   height: 24px;
   width: 220px;
-  border-radius: 4px;
   outline: none;
   border: none;
   color: #232c33;
   padding: 0 8px;
+  border: 1px solid var(--black);
 }
 
 #mc_embed_signup_scroll input[type="submit"] {
-  height: 24px;
+  height: 26px;
   width: 120px;
-  border-radius: 4px;
   outline: none;
   border: none;
-  color: #232c33;
-  background-color: var(--white);
+  color: var(--white);
+  background-color: var(--blue-hl);
+  border: 1px solid var(--blue-hl);
   padding: 0 4px;
   cursor: pointer;
+  transition: all 250ms ease-in-out;
+}
+
+#mc_embed_signup_scroll input[type="submit"]:hover {
+  background-color: var(--blue);
 }
 
 @media (max-width: 680px) {
@@ -254,5 +235,9 @@ ul {
 
   .subscribe {
     width: 300px;
+  }
+
+  .subscribe .hide {
+    right: -30px;
   }
 }
