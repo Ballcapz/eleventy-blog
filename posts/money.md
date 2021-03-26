@@ -2,7 +2,7 @@
 layout: post-layout.njk
 title: Money - Things I've read about
 date: 2021-01-03
-tags: ["post"]
+tags: ["post", "money", "research"]
 ---
 
 # Investing

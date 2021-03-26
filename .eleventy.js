@@ -22,14 +22,21 @@ module.exports = function (eleventyConfig) {
     return new CleanCSS({}).minify(code).styles;
   });
 
+  eleventyConfig.addFilter("buildTags", function (tags) {
+    return tags
+      .filter((t) => t !== "post")
+      .map((t) => `#${t}`)
+      .join(" ");
+  });
+
   eleventyConfig.addShortcode("excerpt", (article) => extractExcerpt(article));
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy('script');
-  eleventyConfig.addPassthroughCopy('favicon.png');
+  eleventyConfig.addPassthroughCopy("script");
+  eleventyConfig.addPassthroughCopy("favicon.png");
 };
 
 function extractExcerpt(article) {

@@ -2,7 +2,7 @@
 layout: post-layout.njk
 title: Playwright Running In Github Actions
 date: 2021-03-04
-tags: ["post"]
+tags: ["post", "dev", "playwright", "javascript"]
 ---
 
 # How I got Playwright Working in a Github Action

@@ -117,6 +117,16 @@ article img {
   height: auto;
 }
 
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-meta div {
+  margin-top: 4px;
+}
+
 .sort.asc::after {
   content: "\002B06";
   padding-left: 3px;

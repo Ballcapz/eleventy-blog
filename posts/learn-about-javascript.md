@@ -2,7 +2,7 @@
 layout: post-layout.njk
 title: On my learnings of JavaScript
 date: 2020-08-10
-tags: ["post"]
+tags: ["post", "learning", "wip", "javascript"]
 ---
 
 # This is WIP - and Always will be

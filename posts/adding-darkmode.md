@@ -2,7 +2,7 @@
 layout: post-layout.njk
 title: Adding darkmode to a website
 date: 2021-03-25
-tags: ["post"]
+tags: ["post", "css", "code", "dev"]
 ---
 
 # Using Detect Dark mode

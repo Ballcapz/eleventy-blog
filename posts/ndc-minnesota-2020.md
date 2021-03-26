@@ -2,7 +2,7 @@
 layout: post-layout.njk
 title: NDC Minnesota 2020
 date: 2020-09-15
-tags: ["post"]
+tags: ["post", "learning", "code", "testing"]
 ---
 
 # Tuesday - Test Driven Development in Modern JavaScript

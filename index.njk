@@ -34,7 +34,11 @@ pagination:
           <h1>
             <a class="name" href="{{ post.url | url }}">{{ post.data.title }}</a>
           </h1>
-          <time class="date" datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+          <div class="post-meta">
+            <time class="date" datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+
+            <div class="tags">{{ post.data.tags | buildTags }}</div>
+          </div>
 
           {% excerpt post %}
 
@@ -48,7 +52,7 @@ pagination:
 <script data-no-instant>
 
   const listOptions = {
-    valueNames: ['name', 'date']
+    valueNames: ['name', 'date', 'tags']
   };
 
   const articleList = new List('posts', listOptions);

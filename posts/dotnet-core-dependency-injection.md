@@ -2,7 +2,7 @@
 layout: post-layout.njk
 title: Dotnet Core Console Appliction Dependency Injection
 date: 2020-09-03
-tags: ["post"]
+tags: ["post", "code", "csharp", "dependency-injection"]
 ---
 
 ## App.cs
