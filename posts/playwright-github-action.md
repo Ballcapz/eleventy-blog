@@ -13,38 +13,38 @@ A few weeks ago we started using [Playwright](https://playwright.dev) to test so
 
 <!-- Excerpt End -->
 
-Since a fair few cases we have are covered by our integration testing, we are only hitting main flows a user will take while using our application.
+Since a fair few cases we have are covered by our integration testing, we are only hitting main flows a user will take while using our application. You can read more about some of this type of test planning over in my [NDC Minnesota](/posts/ndc-minnesota-2020) post, or on [Roy Osherove's](https://osherove.com/) website.
 
-To deploy, we use a Github action that checks-out, builds, tests, and deploys our code. Here are the sticking points we ran into when getting the [Playwright](https://playwright.dev) tests to work.
+To deploy our application, we use a Github action that checks-out, builds, tests, and deploys our code. Here are the sticking points we ran into when getting the [Playwright](https://playwright.dev) tests to work.
 
-- The Chrome sandbox not allowing tests to run - The fix:
+### 1. The Chrome sandbox not allowing tests to run - The fix:
 
-  ```js
-  browser = await chromium.launch({
-    headless: IS_HEADLESS,
-    chromiumSandbox: false,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
-  ```
+```js
+browser = await chromium.launch({
+  headless: IS_HEADLESS,
+  chromiumSandbox: false,
+  args: ["--no-sandbox", "--disable-setuid-sandbox"],
+});
+```
 
-  So, this is kind of breaking some security practices, but since we are running the tests in an isolated, secure sandbox, this was a tradeoff we were willing to make. We also aren't exposing any sensitive data or anything, so thats another reason why we found no problem running the chromium instance without sandboxing.
+So, this is kind of breaking some security practices, but since we are running the tests in an isolated, secure sandbox, this was a tradeoff we were willing to make. We also aren't exposing any sensitive data or anything, so thats another reason why we found no problem running the chromium instance without sandboxing.
 
-- Not being able to upload a file - The fix:
+### 2. Not being able to upload a file - The fix:
 
-  ```js
-  page.on("filechooser", async (fileChooser) => {
-    await fileChooser.setFiles("./__fixtures__/example.txt");
-  });
-  ```
+```js
+page.on("filechooser", async (fileChooser) => {
+  await fileChooser.setFiles("./__fixtures__/example.txt");
+});
+```
 
-  The file path is a relative path of where your node `cwd()` is, for example my `__fixtures__` folder is in the directory in this structure:
+The file path is a relative path of where your node `cwd()` is, for example my `__fixtures__` folder is in the directory in this structure:
 
-  `tests` <br>
-  |------- `__tests__/`<br>
-  |------- `package.json`<br>
-  |------- `__fixtures__/`<br>
+`tests` <br>
+|------- `__tests__/`<br>
+|------- `package.json`<br>
+|------- `__fixtures__/`<br>
 
-- Waiting for hidden selectors - The fix:
+### 3. Waiting for selectors to be hidden - The fix:
 
 ```js
 await page.waitForSelector('div:text-matches("example.txt")', {

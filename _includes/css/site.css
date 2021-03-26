@@ -9,6 +9,17 @@
   --black: #232c33;
   --pewter: #76949f;
   --white: #ffffff;
+  --off-white: #fdfdfd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: #ffffff;
+    --white: #232c33;
+    --off-white: #111111;
+    --blue-hl: var(--pewter);
+    --blue: #3a6a92;
+  }
 }
 
 body {
@@ -17,6 +28,7 @@ body {
   font-size: 19px;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--black);
+  background-color: var(--off-white);
 }
 
 @media screen and (min-width: 768px) {
@@ -61,13 +73,6 @@ header > a:hover {
 main {
   padding: 5px 16px;
   word-wrap: break-word;
-}
-
-footer {
-  padding: 35px 0 25px 0;
-  text-align: center;
-  font-size: 0.8em;
-  color: #666666;
 }
 
 h1,
@@ -156,8 +161,9 @@ ul {
   width: 120px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #232323;
-  color: #232c33;
+  border: 1px solid var(--black);
+  color: var(--black);
+  background-color: var(--white);
   padding: 0 4px;
 }
 
@@ -205,7 +211,8 @@ ul {
   width: 220px;
   outline: none;
   border: none;
-  color: #232c33;
+  color: var(--black);
+  background-color: var(--white);
   padding: 0 8px;
   border: 1px solid var(--black);
 }
@@ -217,7 +224,6 @@ ul {
   border: none;
   color: var(--white);
   background-color: var(--blue-hl);
-  border: 1px solid var(--blue-hl);
   padding: 0 4px;
   cursor: pointer;
   transition: all 250ms ease-in-out;
